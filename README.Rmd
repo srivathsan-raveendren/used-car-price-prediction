@@ -1,0 +1,82 @@
+---
+title: "Used Car Price Prediction – R Project"
+output: github_document
+---
+
+# 🚗 Used Car Price Prediction – R Project
+
+This project applies multiple machine learning models in **R** to predict the selling price of used cars based on features such as car age, kilometers driven, fuel type, and transmission. It involves data cleaning, feature engineering, exploratory data analysis (EDA), and model comparison using regression and ensemble techniques.
+
+---
+
+## 🎯 Objective
+
+To accurately predict the **selling price of used cars** by building and comparing different machine learning models in R, and to evaluate their performance using appropriate metrics.
+
+---
+
+## 📊 Dataset Overview
+
+- Total Observations: ~8,000
+- Features include:
+    - Name of the car
+    - Year of manufacture
+    - Selling price
+    - Kilometers driven
+    - Fuel type
+    - Transmission
+    - Seller type
+    - Owner type
+
+---
+
+## 🔧 Tools & Libraries Used
+
+- **Programming Language**: R
+- **Libraries**:
+  - `dplyr`, `tidyverse`, `ggplot2` – Data manipulation and visualization
+  - `caret`, `ipred`, `xgboost` – Model training & evaluation
+  - `reshape2`, `corrplot` – Data analysis
+
+---
+
+## 🔬 Process Overview
+
+1. **Data Cleaning**  
+   - Removal of NA and inconsistent values  
+   - Standardization of column names  
+   - Outlier filtering based on logical thresholds
+
+2. **Feature Engineering**  
+   - Created new variables: `Car_Age`, `Price_per_KM`  
+   - Converted categorical variables using one-hot encoding
+
+3. **Exploratory Data Analysis (EDA)**  
+   - Distribution of car ages, selling price, fuel type  
+   - Correlation heatmaps and boxplots
+
+4. **Modeling & Evaluation**  
+   - Train/test split  
+   - Multiple models evaluated:
+      - Linear Regression  
+      - Ridge Regression  
+      - k-Nearest Neighbors (KNN)  
+      - Support Vector Regression (SVR)  
+      - Random Forest  
+      - XGBoost  
+      - Neural Networks  
+   - Evaluation using **R² scores**, training vs test performance
+
+---
+
+## 📈 Model Performance Summary
+
+```{r echo=FALSE, results='asis'}
+knitr::kable(
+  data.frame(
+    Model = c("Linear Regression", "Ridge Regression", "KNN", "SVR (Linear)", "SVR (Radial)", "Random Forest", "Neural Network", "XGBoost"),
+    Train_R2 = c(0.8619, 0.8578, 0.8803, 0.7827, 0.8605, 0.9823, 0.8926, 0.9688),
+    Test_R2  = c(0.8521, 0.8532, 0.8539, 0.7434, 0.8540, 0.8840, 0.8707, 0.8796)
+  ),
+  caption = "Model performance based on R² score"
+)
